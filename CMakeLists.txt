@@ -75,8 +75,8 @@ if( NOT CMAKE_BUILD_TYPE )
        "Choose the type of build, options are: Debug Release."
        FORCE )
 endif()
-
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wpedantic")
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -Werror")
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O")
 
 include_directories(${CMAKE_BINARY_DIR}/generated)
