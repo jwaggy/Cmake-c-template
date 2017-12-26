@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.7.2)
 
 project(example)
 
+set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMake")
+
+include(cotire)
+
 if(EXISTS "${CMAKE_SOURCE_DIR}/.git")
   execute_process(
     COMMAND git rev-parse --abbrev-ref HEAD
@@ -85,3 +89,5 @@ include_directories(include)
 file(GLOB SOURCES "src/*.c")
 
 add_executable(example ${SOURCES})
+
+cotire(example)
