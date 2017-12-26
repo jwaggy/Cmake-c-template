@@ -67,7 +67,7 @@ done
 
 cd build || echo_failure
 echo -e "\n"
-cmake .. -DCMAKE_BUILD_TYPE=$COMPVAR -DCOTIRE_MAXIMUM_NUMBER_OF_UNITY_INCLUDES=-j$PROCS
+cmake .. -DCMAKE_BUILD_TYPE=$COMPVAR
 EXITSTATUS=$?
 if [[ $EXITSTATUS -eq 0 ]]; then
     echo_success
