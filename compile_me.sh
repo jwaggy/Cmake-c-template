@@ -65,10 +65,9 @@ while [[ $FLIP -eq 0 ]]; do
     fi
 done
 
-
 cd build || echo_failure
 echo -e "\n"
-cmake .. -DCMAKE_BUILD_TYPE=$COMPVAR
+cmake .. -DCMAKE_BUILD_TYPE=$COMPVAR -DCOTIRE_MAXIMUM_NUMBER_OF_UNITY_INCLUDES=-j$PROCS
 EXITSTATUS=$?
 if [[ $EXITSTATUS -eq 0 ]]; then
     echo_success
