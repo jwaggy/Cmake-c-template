@@ -1,4 +1,9 @@
 #!/bin/bash
+if command -v nproc &>/dev/null; then
+    PROCS=$(nproc)
+else
+    PROCS=$(grep -c ^processor /proc/cpuinfo)
+fi
 
 BOOTUP=color
 RES_COL=60
@@ -71,7 +76,7 @@ else
     echo_failure
 fi
 echo -e "\n"
-make
+make -j$PROCS
 EXITSTATUS=$?
 if [[ $EXITSTATUS -eq 0 ]]; then
     echo_success
